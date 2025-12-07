@@ -1,0 +1,178 @@
+/* styles.css
+   Red & Black Cinematic theme
+   CSS-only dark toggle, CSS-only seat selection
+*/
+
+/* ---------- Theme (light/dark variables) ---------- */
+:root{
+  --primary-1: #ff3b30; /* vivid red */
+  --primary-2: #7f0000; /* deep maroon */
+  --card: rgba(0,0,0,0.65);
+  --bg-start: #1a0000;
+  --bg-end: #000000;
+  --text: #fff;
+  --muted: rgba(255,255,255,0.75);
+  --accent: #ff7b5a;
+  --glass: rgba(255,255,255,0.04);
+}
+
+/* CSS-only dark toggle: put checkbox with id="dm-toggle" before .site on each page */
+/* When checked, we slightly change variables (subtle effect for demo) */
+#dm-toggle:checked + .site {
+  --primary-1: #ff6b6b;
+  --primary-2: #400000;
+  --card: rgba(255,255,255,0.06);
+  --text: #fff;
+  --muted: rgba(255,255,255,0.8);
+  --accent: #ff8f73;
+}
+
+/* ---------- Global reset ---------- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html,body{ height:100%; }
+body{
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background: linear-gradient(180deg, var(--bg-start) 0%, var(--bg-end) 60%);
+  color: var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* site wrapper */
+.site{ min-height:100vh; display:flex; flex-direction:column; }
+
+/* ---------- header ---------- */
+.header{
+  display:flex; justify-content:space-between; align-items:center;
+  padding:14px 20px;
+  background: linear-gradient(90deg, rgba(0,0,0,0.45), rgba(0,0,0,0.2));
+  backdrop-filter: blur(6px);
+  position: sticky; top:0; z-index:50;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+.brand{ display:flex; align-items:center; gap:12px; }
+.logo{
+  width:44px; height:44px; border-radius:8px;
+  background: linear-gradient(135deg, var(--primary-1), var(--primary-2));
+  box-shadow: 0 6px 18px rgba(0,0,0,0.6), 0 1px 0 rgba(255,255,255,0.03) inset;
+}
+.brand h1{ font-size:18px; letter-spacing:0.4px; color:var(--text); margin:0; }
+.nav{ display:flex; gap:12px; align-items:center; }
+.nav a{
+  color:var(--muted); text-decoration:none; font-weight:600; padding:8px 10px;
+  border-radius:8px;
+}
+.nav a:hover{ color:#fff; background: rgba(255,255,255,0.03); }
+
+/* dark-mode label */
+.dm-label{
+  display:inline-block; padding:8px 12px; border-radius:10px;
+  background: linear-gradient(90deg, var(--primary-1), var(--primary-2));
+  color:#fff; font-weight:700; cursor:pointer;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+
+/* container helper */
+.container{ width:94%; max-width:1100px; margin:0 auto; }
+
+/* ---------- hero ---------- */
+.hero{ text-align:center; padding:70px 20px 40px; }
+.hero .kicker{ color:var(--accent); font-weight:700; letter-spacing:1px; }
+.hero h2{ font-size:36px; margin:12px 0; color:#fff; text-shadow:0 6px 30px rgba(0,0,0,0.6); }
+.hero p{ color:var(--muted); max-width:880px; margin:10px auto 18px; }
+
+/* CTA */
+.btn{
+  display:inline-block; text-decoration:none; color:#fff; font-weight:800;
+  padding:12px 20px; border-radius:12px;
+  background: linear-gradient(90deg, var(--primary-1), var(--primary-2));
+  box-shadow: 0 14px 36px rgba(0,0,0,0.6);
+}
+
+/* ---------- movie grid & card ---------- */
+.movie-grid{
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+  gap:20px; padding:28px 0 60px;
+}
+.movie-card{
+  background: var(--card); border-radius:12px; overflow:hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  transition: transform .16s ease, box-shadow .16s ease;
+}
+.movie-card:hover{ transform: translateY(-8px); box-shadow: 0 22px 46px rgba(0,0,0,0.65); }
+.movie-card img{
+  width:100%; height:320px; object-fit:cover; display:block;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+.movie-card img,
+.details-container img {
+  height: 450px;     /* was too small before */
+  object-fit: cover;
+}
+
+.movie-card .meta{ padding:12px 14px; }
+.movie-card h3{ margin:0 0 6px 0; font-size:18px; color:#fff; }
+.movie-card p{ margin:0 0 12px 0; color:var(--muted); font-size:14px; }
+
+/* ensure ALL poster images same size in details etc. */
+.poster-img{ width:100%; max-width:420px; height:320px; object-fit:cover; border-radius:10px; }
+
+/* ---------- details ---------- */
+.details{ padding:28px 0 48px; }
+.details .card{
+  background: var(--card); padding:18px; border-radius:12px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  display:flex; gap:20px; align-items:flex-start; flex-wrap:wrap;
+}
+
+/* ---------- seat selection (CSS-only) ---------- */
+.seat-map{ padding:12px 0; display:block; }
+.seat-row{ display:flex; gap:12px; margin-bottom:12px; }
+.seat-input{ display:none; }
+.seat-label{
+  width:42px; height:42px; display:inline-flex; align-items:center; justify-content:center;
+  background: linear-gradient(180deg, var(--primary-1), var(--primary-2));
+  color:#fff; border-radius:8px; font-weight:800; cursor:pointer; user-select:none;
+  box-shadow: 0 10px 26px rgba(0,0,0,0.6);
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.seat-label:hover{ transform: translateY(-6px); }
+.seat-input:checked + .seat-label{
+  background: linear-gradient(180deg,#2ecc71,#27ae60);
+  box-shadow: 0 14px 34px rgba(0,0,0,0.7);
+}
+.seat-label.taken{
+  background: #9aa0a6; cursor:not-allowed; opacity:0.85; transform:none;
+  box-shadow:none;
+}
+
+/* legend (small) */
+.legend{ display:flex; gap:14px; align-items:center; color:var(--muted); margin-top:8px; }
+.legend .box{ width:14px; height:14px; border-radius:3px; display:inline-block; }
+
+/* ---------- forms ---------- */
+.form-box{ padding:18px; border-radius:10px; background:var(--card); }
+.form-box input, .form-box select{
+  width:100%; padding:12px; margin-bottom:12px; border-radius:8px; border:none;
+  background: rgba(0,0,0,0.06); color:var(--text);
+}
+.form-box input::placeholder{ color: rgba(255,255,255,0.6); }
+
+/* ---------- footer ---------- */
+.footer{
+  margin-top:auto; padding:18px 20px; text-align:center;
+  color:var(--muted); font-weight:600;
+  border-top:1px solid rgba(255,255,255,0.02);
+}
+
+/* ---------- responsive tweaks ---------- */
+@media (max-width:900px){
+  .movie-card img{ height:260px; }
+  .poster-img{ height:260px; }
+  .details .card{ flex-direction:column; align-items:center; }
+}
+@media (max-width:520px){
+  .hero h2{ font-size:26px; }
+  .movie-card img{ height:200px; }
+  .poster-img{ height:200px; }
+  .seat-label{ width:34px; height:34px; font-size:13px; }
+}

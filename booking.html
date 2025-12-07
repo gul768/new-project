@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>CinemaX — Booking</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <input id="dm-toggle" type="checkbox" style="display:none;">
+  <div class="site">
+    <header class="header container">
+      <div class="brand"><div class="logo"></div><h1>CinemaX</h1></div>
+      <nav class="nav"><a href="index.html">Home</a><a href="movies.html">Movies</a><label for="dm-toggle" class="dm-label">Dark</label></nav>
+    </header>
+
+    <main class="container">
+      <h2 style="margin:20px 0 12px;">Select Seats</h2>
+
+      <div class="details card" style="flex-direction:column;">
+        <div style="width:100%;">
+          <!-- Seat map: inputs + labels. Use disabled for taken seats -->
+          <div class="seat-map">
+            <div class="seat-row">
+              <input type="checkbox" id="s1" class="seat-input"><label for="s1" class="seat-label">A1</label>
+              <input type="checkbox" id="s2" class="seat-input"><label for="s2" class="seat-label">A2</label>
+              <input type="checkbox" id="s3" class="seat-input" disabled><label for="s3" class="seat-label taken">A3</label>
+              <input type="checkbox" id="s4" class="seat-input"><label for="s4" class="seat-label">A4</label>
+            </div>
+
+            <div class="seat-row">
+              <input type="checkbox" id="s5" class="seat-input"><label for="s5" class="seat-label">B1</label>
+              <input type="checkbox" id="s6" class="seat-input"><label for="s6" class="seat-label">B2</label>
+              <input type="checkbox" id="s7" class="seat-input"><label for="s7" class="seat-label">B3</label>
+              <input type="checkbox" id="s8" class="seat-input" disabled><label for="s8" class="seat-label taken">B4</label>
+            </div>
+
+            <div class="legend" style="margin-top:12px;">
+              <div style="display:flex; gap:8px; align-items:center;"><span class="box" style="background:linear-gradient(180deg,var(--primary-1),var(--primary-2));"></span><span>Available</span></div>
+              <div style="display:flex; gap:8px; align-items:center;"><span class="box" style="background:#2ecc71"></span><span>Selected</span></div>
+              <div style="display:flex; gap:8px; align-items:center;"><span class="box" style="background:#9aa0a6"></span><span>Taken</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div style="width:100%; margin-top:18px;">
+          <div class="form-box">
+            <h3>Booking Details</h3>
+            <input type="text" placeholder="Full name" required>
+            <input type="email" placeholder="Email" required>
+            <label style="color:var(--muted); margin-bottom:6px; display:block;">Tickets</label>
+            <select>
+              <option>1</option><option>2</option><option>3</option>
+            </select>
+            <a class="btn" href="payment.html">Proceed to Payment</a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer container">© CinemaX</footer>
+  </div>
+</body>
+</html>
