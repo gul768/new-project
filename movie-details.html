@@ -2,32 +2,243 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>CinemaX — Movie Details</title>
+  <title>CinemaX — All Movies & Details</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+  <!-- Dark Mode Toggle -->
   <input id="dm-toggle" type="checkbox" style="display:none;">
+
   <div class="site">
+
+    <!-- HEADER -->
     <header class="header container">
       <div class="brand"><div class="logo"></div><h1>CinemaX</h1></div>
-      <nav class="nav"><a href="index.html">Home</a><a href="movies.html">Movies</a><label for="dm-toggle" class="dm-label">Dark</label></nav>
+      <nav class="nav">
+        <a href="#movies">Movies</a>
+        <a href="#details">Details</a>
+        <label for="dm-toggle" class="dm-label">Dark</label>
+      </nav>
     </header>
 
-    <main class="container details">
-      <div class="card">
-        <img src="https://m.media-amazon.com/images/I/71niXI3lxlL._AC_SL1500_.jpg" class="poster-img" alt="Avatar poster">
+    <!-- MOVIE GRID -->
+    <main class="container" id="movies">
+      <h2 style="margin:22px 0;">Now Showing</h2>
+
+      <section class="movie-grid">
+        
+        <article class="movie-card">
+          <img src="Toy Story.jfif" alt="Toy Story">
+          <div class="meta">
+            <h3>Toy Story</h3>
+            <p>Animation • 1h 21m</p>
+            <a class="btn" href="#toy-story">Details</a>
+          </div>
+        </article>
+
+        <article class="movie-card">
+          <img src="Frozen.jfif" alt="Frozen">
+          <div class="meta">
+            <h3>Frozen</h3>
+            <p>Animation • 1h 42m</p>
+            <a class="btn" href="#frozen">Details</a>
+          </div>
+        </article>
+
+        <article class="movie-card">
+          <img src="The Lion King.jfif" alt="The Lion King">
+          <div class="meta">
+            <h3>The Lion King</h3>
+            <p>Animation • 1h 28m</p>
+            <a class="btn" href="#lion-king">Details</a>
+          </div>
+        </article>
+
+        <article class="movie-card">
+          <img src="Zootopia.jfif" alt="Zootopia">
+          <div class="meta">
+            <h3>Zootopia</h3>
+            <p>Animation • 1h 48m</p>
+            <a class="btn" href="#zootopia">Details</a>
+          </div>
+        </article>
+
+        <article class="movie-card">
+          <img src="Inside Out.jfif" alt="Inside Out">
+          <div class="meta">
+            <h3>Inside Out</h3>
+            <p>Animation • 1h 35m</p>
+            <a class="btn" href="#inside-out">Details</a>
+          </div>
+        </article>
+
+        <article class="movie-card">
+          <img src="Moana.jfif" alt="Moana">
+          <div class="meta">
+            <h3>Moana</h3>
+            <p>Animation • 1h 47m</p>
+            <a class="btn" href="#moana">Details</a>
+          </div>
+        </article>
+
+        <article class="movie-card">
+          <img src="Shrek.jfif" alt="Shrek">
+          <div class="meta">
+            <h3>Shrek</h3>
+            <p>Animation • 1h 30m</p>
+            <a class="btn" href="#shrek">Details</a>
+          </div>
+        </article>
+
+        <article class="movie-card">
+          <img src="Despicable Me.jfif" alt="Despicable Me">
+          <div class="meta">
+            <h3>Despicable Me</h3>
+            <p>Animation • 1h 35m</p>
+            <a class="btn" href="#despicable-me">Details</a>
+          </div>
+        </article>
+
+        <article class="movie-card">
+          <img src="Kung Fu Panda.jfif" alt="Kung Fu Panda">
+          <div class="meta">
+            <h3>Kung Fu Panda</h3>
+            <p>Animation • 1h 32m</p>
+            <a class="btn" href="#kung-fu-panda">Details</a>
+          </div>
+        </article>
+
+        <article class="movie-card">
+          <img src="How to Train Your Dragon.jfif" alt="How to Train Your Dragon">
+          <div class="meta">
+            <h3>How to Train Your Dragon</h3>
+            <p>Animation • 1h 38m</p>
+            <a class="btn" href="#httyd">Details</a>
+          </div>
+        </article>
+
+      </section>
+    </main>
+
+    <!-- ALL MOVIE DETAILS ON SAME PAGE -->
+    <main class="container details" id="details">
+
+      <!-- TOY STORY -->
+      <div class="card" id="toy-story">
+        <img src="Toy Story.jfif" class="poster-img">
         <div>
-          <h2>Avatar (2009)</h2>
-          <p><strong>Genre:</strong> Sci-Fi</p>
-          <p><strong>Duration:</strong> 2h 42m</p>
-          <p>An epic adventure on a lush alien world — visually spectacular.</p>
-          <p style="margin-top:14px;"><a class="btn" href="booking.html">Book Tickets</a></p>
+          <h2>Toy Story (1995)</h2>
+          <p><strong>Genre:</strong> Animation</p>
+          <p><strong>Duration:</strong> 1h 21m</p>
+          <p>Woody, Buzz, and the toys begin their first big adventure.</p>
         </div>
-      </div>
+      </div><br>
+
+      <!-- FROZEN -->
+      <div class="card" id="frozen">
+        <img src="Frozen.jfif" class="poster-img">
+        <div>
+          <h2>Frozen (2013)</h2>
+          <p><strong>Genre:</strong> Animation</p>
+          <p><strong>Duration:</strong> 1h 42m</p>
+          <p>Elsa and Anna discover the power of love and icy magic.</p>
+        </div>
+      </div><br>
+
+      <!-- THE LION KING -->
+      <div class="card" id="lion-king">
+        <img src="The Lion King.jfif" class="poster-img">
+        <div>
+          <h2>The Lion King (1994)</h2>
+          <p><strong>Genre:</strong> Animation</p>
+          <p><strong>Duration:</strong> 1h 28m</p>
+          <p>Simba learns the meaning of courage, family, and the circle of life.</p>
+        </div>
+      </div><br>
+
+      <!-- ZOOTOPIA -->
+      <div class="card" id="zootopia">
+        <img src="Zootopia.jfif" class="poster-img">
+        <div>
+          <h2>Zootopia (2016)</h2>
+          <p><strong>Genre:</strong> Animation</p>
+          <p><strong>Duration:</strong> 1h 48m</p>
+          <p>A bunny cop and a fox team up to solve a huge mystery.</p>
+        </div>
+      </div><br>
+
+      <!-- INSIDE OUT -->
+      <div class="card" id="inside-out">
+        <img src="Inside Out.jfif" class="poster-img">
+        <div>
+          <h2>Inside Out (2015)</h2>
+          <p><strong>Genre:</strong> Animation</p>
+          <p><strong>Duration:</strong> 1h 35m</p>
+          <p>Joy, Sadness, Anger, Fear, and Disgust guide Riley’s emotions.</p>
+        </div>
+      </div><br>
+
+      <!-- MOANA -->
+      <div class="card" id="moana">
+        <img src="Moana.jfif" class="poster-img">
+        <div>
+          <h2>Moana (2016)</h2>
+          <p><strong>Genre:</strong> Animation</p>
+          <p><strong>Duration:</strong> 1h 47m</p>
+          <p>A brave girl sails across the ocean to save her island.</p>
+        </div>
+      </div><br>
+
+      <!-- SHREK -->
+      <div class="card" id="shrek">
+        <img src="Shrek.jfif" class="poster-img">
+        <div>
+          <h2>Shrek (2001)</h2>
+          <p><strong>Genre:</strong> Animation</p>
+          <p><strong>Duration:</strong> 1h 30m</p>
+          <p>An ogre sets out on a quest to rescue Princess Fiona.</p>
+        </div>
+      </div><br>
+
+      <!-- DESPICABLE ME -->
+      <div class="card" id="despicable-me">
+        <img src="Despicable Me.jfif" class="poster-img">
+        <div>
+          <h2>Despicable Me (2010)</h2>
+          <p><strong>Genre:</strong> Animation</p>
+          <p><strong>Duration:</strong> 1h 35m</p>
+          <p>Gru adopts three girls and discovers what family means.</p>
+        </div>
+      </div><br>
+
+      <!-- KUNG FU PANDA -->
+      <div class="card" id="kung-fu-panda">
+        <img src="Kung Fu Panda.jfif" class="poster-img">
+        <div>
+          <h2>Kung Fu Panda (2008)</h2>
+          <p><strong>Genre:</strong> Animation</p>
+          <p><strong>Duration:</strong> 1h 32m</p>
+          <p>Po the panda becomes the Dragon Warrior.</p>
+        </div>
+      </div><br>
+
+      <!-- HOW TO TRAIN YOUR DRAGON -->
+      <div class="card" id="httyd">
+        <img src="How to Train Your Dragon.jfif" class="poster-img">
+        <div>
+          <h2>How to Train Your Dragon (2010)</h2>
+          <p><strong>Genre:</strong> Animation</p>
+          <p><strong>Duration:</strong> 1h 38m</p>
+          <p>A young Viking befriends a dragon and changes everything.</p>
+        </div>
+      </div><br>
+
     </main>
 
     <footer class="footer container">© CinemaX</footer>
+
   </div>
 </body>
 </html>
