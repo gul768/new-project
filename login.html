@@ -7,21 +7,44 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <input id="dm-toggle" type="checkbox" style="display:none;">
   <div class="site">
     <header class="header container"><div class="brand"><div class="logo"></div><h1>CinemaX</h1></div></header>
 
     <main class="container">
-      <div class="form-box" style="margin-top:40px;">
+      <form class="form-box" style="margin-top:40px;" onsubmit="return loginUser();">
         <h2>Login</h2>
-        <input type="text" placeholder="Email">
-        <input type="password" placeholder="Password">
-        <a class="btn" href="index.html">Login (demo)</a>
+        <input type="email" id="loginEmail" placeholder="Email" required>
+        <input type="password" id="loginPassword" placeholder="Password" required>
+        <button class="btn" type="submit">Login</button>
         <p style="margin-top:8px;color:var(--muted);">New user? <a href="register.html" style="color:var(--accent);">Create account</a></p>
-      </div>
+      </form>
     </main>
 
     <footer class="footer container">© CinemaX</footer>
   </div>
+
+  <script>
+    function loginUser() {
+      const email = document.getElementById('loginEmail').value.trim();
+      const password = document.getElementById('loginPassword').value.trim();
+
+      const registeredEmail = localStorage.getItem('userEmail');
+      const registeredPassword = localStorage.getItem('userPassword');
+
+      if (!registeredEmail || !registeredPassword) {
+        alert("No registered user found! Please register first.");
+        return false;
+      }
+
+      if (email === registeredEmail && password === registeredPassword) {
+        alert("Login successful!");
+        window.location.href = "booking.html";
+      } else {
+        alert("Invalid email or password.");
+      }
+
+      return false; // prevent default form submit
+    }
+  </script>
 </body>
 </html>
