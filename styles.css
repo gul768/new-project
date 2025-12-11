@@ -2,6 +2,14 @@
    Blue & White Clean Theme
    CSS-only dark toggle, CSS-only seat selection
 */
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background: linear-gradient(180deg, var(--bg-start) 0%, var(--bg-end) 60%), var(--bg-image);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  color: var(--text);
+}
 
 /* ---------- Theme (light mode variables) ---------- */
 :root{
@@ -14,7 +22,7 @@
   --muted: rgba(30,60,90,0.7);
   --accent: #0077ff;         /* highlight blue */
   --glass: rgba(255,255,255,0.12);
-  --bg-image: url('background.jfif'); /* background image path */
+  --bg-image: url('back.jfif'); /* background image path */
 }
 
 /* ---------- DARK MODE (clean deep blue) ---------- */
