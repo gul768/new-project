@@ -7,58 +7,139 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
   <input id="dm-toggle" type="checkbox" style="display:none;">
   <div class="site">
+
+    <!-- HEADER -->
     <header class="header container">
-      <div class="brand"><div class="logo"></div><h1>CinemaX</h1></div>
-      <nav class="nav"><a href="index.html">Home</a><a href="movies.html">Movies</a><label for="dm-toggle" class="dm-label">Dark</label></nav>
+      <div class="brand">
+        <div class="logo"></div>
+        <h1>CinemaX</h1>
+      </div>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="movies.html">Movies</a>
+        <label for="dm-toggle" class="dm-label">Dark</label>
+      </nav>
     </header>
 
     <main class="container">
+
       <h2 style="margin:20px 0 12px;">Select Seats</h2>
 
+      <!-- Instructions -->
+      <div style="
+        background:rgba(0,0,0,0.05);
+        padding:14px;
+        border-radius:10px;
+        border-left:4px solid var(--primary-1);
+        margin-bottom:18px;
+      ">
+        <strong>Instructions:</strong>
+        <ul style="margin-left:20px; margin-top:6px; color:var(--text);">
+          <li>You must select at least one seat.</li>
+          <li>Full name and email are required.</li>
+          <li>Grey seats are already booked.</li>
+        </ul>
+      </div>
+
+      <!-- DETAILS + SEAT MAP -->
       <div class="details card" style="flex-direction:column;">
+
+        <!-- SEAT MAP -->
         <div style="width:100%;">
-          <!-- Seat map: inputs + labels. Use disabled for taken seats -->
           <div class="seat-map">
+
             <div class="seat-row">
-              <input type="checkbox" id="s1" class="seat-input"><label for="s1" class="seat-label">A1</label>
-              <input type="checkbox" id="s2" class="seat-input"><label for="s2" class="seat-label">A2</label>
-              <input type="checkbox" id="s3" class="seat-input" disabled><label for="s3" class="seat-label taken">A3</label>
-              <input type="checkbox" id="s4" class="seat-input"><label for="s4" class="seat-label">A4</label>
+              <input type="checkbox" id="s1" class="seat-input">
+              <label for="s1" class="seat-label">A1</label>
+
+              <input type="checkbox" id="s2" class="seat-input">
+              <label for="s2" class="seat-label">A2</label>
+
+              <input type="checkbox" id="s3" class="seat-input" disabled>
+              <label for="s3" class="seat-label taken">A3</label>
+
+              <input type="checkbox" id="s4" class="seat-input">
+              <label for="s4" class="seat-label">A4</label>
             </div>
 
             <div class="seat-row">
-              <input type="checkbox" id="s5" class="seat-input"><label for="s5" class="seat-label">B1</label>
-              <input type="checkbox" id="s6" class="seat-input"><label for="s6" class="seat-label">B2</label>
-              <input type="checkbox" id="s7" class="seat-input"><label for="s7" class="seat-label">B3</label>
-              <input type="checkbox" id="s8" class="seat-input" disabled><label for="s8" class="seat-label taken">B4</label>
+              <input type="checkbox" id="s5" class="seat-input">
+              <label for="s5" class="seat-label">B1</label>
+
+              <input type="checkbox" id="s6" class="seat-input">
+              <label for="s6" class="seat-label">B2</label>
+
+              <input type="checkbox" id="s7" class="seat-input">
+              <label for="s7" class="seat-label">B3</label>
+
+              <input type="checkbox" id="s8" class="seat-input" disabled>
+              <label for="s8" class="seat-label taken">B4</label>
             </div>
 
-            <div class="legend" style="margin-top:12px;">
-              <div style="display:flex; gap:8px; align-items:center;"><span class="box" style="background:linear-gradient(180deg,var(--primary-1),var(--primary-2));"></span><span>Available</span></div>
-              <div style="display:flex; gap:8px; align-items:center;"><span class="box" style="background:#2ecc71"></span><span>Selected</span></div>
-              <div style="display:flex; gap:8px; align-items:center;"><span class="box" style="background:#9aa0a6"></span><span>Taken</span></div>
+            <!-- LEGEND -->
+            <div style="margin-top:12px; display:flex; gap:20px;">
+              <div style="display:flex; gap:8px; align-items:center;">
+                <span style="width:20px;height:20px;border-radius:4px;background:linear-gradient(180deg,var(--primary-1),var(--primary-2));"></span>
+                <span>Available</span>
+              </div>
+              <div style="display:flex; gap:8px; align-items:center;">
+                <span style="width:20px;height:20px;border-radius:4px;background:#2ecc71;"></span>
+                <span>Selected</span>
+              </div>
+              <div style="display:flex; gap:8px; align-items:center;">
+                <span style="width:20px;height:20px;border-radius:4px;background:#bfc8d6;"></span>
+                <span>Booked</span>
+              </div>
             </div>
+
           </div>
         </div>
 
+        <!-- BOOKING FORM -->
         <div style="width:100%; margin-top:18px;">
-          <div class="form-box">
-            <h3>Booking Details</h3>
-            <input type="text" placeholder="Full name" required>
-            <input type="email" placeholder="Email" required>
+          <form action="payment.html" method="GET" class="form-box" onsubmit="return checkSeats()">
+
+            <h3 style="margin-bottom:12px;">Booking Details</h3>
+
+            <input type="text" name="fullname" placeholder="Full name" required>
+            <input type="email" name="email" placeholder="Email" required>
+
             <label style="color:var(--muted); margin-bottom:6px; display:block;">Tickets</label>
-            <select>
-              <option>1</option><option>2</option><option>3</option>
+            <select name="tickets" required>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
             </select>
-            <a class="btn" href="payment.html">Proceed to Payment</a>
-          </div>
+
+            <button type="submit" class="btn" style="width:100%;text-align:center;">
+              Proceed to Payment
+            </button>
+
+          </form>
         </div>
+
       </div>
     </main>
 
-    <footer class="footer container">© CinemaX</footer>
+    <footer class="footer container">
+      © CinemaX
+    </footer>
+
   </div>
+
+  <script>
+    function checkSeats() {
+      const seats = document.querySelectorAll('.seat-input:not([disabled])');
+      for (const seat of seats) {
+        if (seat.checked) return true;
+      }
+      alert('Please select at least one seat!');
+      return false;
+    }
+  </script>
+
 </body>
 </html>
