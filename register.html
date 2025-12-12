@@ -6,22 +6,44 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-  <input id="dm-toggle" type="checkbox" style="display:none;">
+<body class="login-page">
   <div class="site">
     <header class="header container"><div class="brand"><div class="logo"></div><h1>CinemaX</h1></div></header>
 
     <main class="container">
-      <div class="form-box" style="margin-top:40px;">
+      <form class="form-box" style="margin-top:40px;" onsubmit="return registerUser();">
         <h2>Create account</h2>
-        <input type="text" placeholder="Full name">
-        <input type="email" placeholder="Email">
-        <input type="password" placeholder="Password">
-        <a class="btn" href="login.html">Register (demo)</a>
-      </div>
+        <input type="text" id="name" placeholder="Full name" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button class="btn" type="submit">Register</button>
+        <p style="margin-top:8px;color:var(--muted);">Already have an account? <a href="login.html" style="color:var(--accent);">Login</a></p>
+      </form>
     </main>
 
     <footer class="footer container">© CinemaX</footer>
   </div>
+
+  <script>
+    function registerUser() {
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
+
+      if (!name || !email || !password) {
+        alert("All fields are required!");
+        return false;
+      }
+
+      // Save in localStorage
+      localStorage.setItem('userName', name);
+      localStorage.setItem('userEmail', email);
+      localStorage.setItem('userPassword', password);
+
+      alert("Registration successful!");
+      window.location.href = "login.html";
+      return false;
+    }
+  </script>
 </body>
 </html>

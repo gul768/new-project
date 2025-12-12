@@ -3,19 +3,63 @@
 <head>
 <meta charset="UTF-8">
 <title>Payment - CinemaX</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-<header>
-  <h2>CinemaX</h2>
-</header>
+<body class="login-page">
 
-<div class="form-box">
-  <h2>Payment</h2>
-  <input type="text" placeholder="Card Number">
-  <input type="text" placeholder="Expiry Date">
-  <input type="text" placeholder="CVV">
-  <a class="btn" href="index.html">Confirm Payment</a>
+<input id="dm-toggle" type="checkbox" style="display:none;">
+
+<div class="site">
+
+  <!-- HEADER + NAVIGATION -->
+  <header class="header container">
+    <div class="brand">
+      <div class="logo"></div>
+      <h1>CinemaX</h1>
+    </div>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="movies.html">Movies</a>
+      <a href="booking.html">Booking</a>
+      <label for="dm-toggle" class="dm-label">Dark</label>
+    </nav>
+  </header> 
+
+  <!-- MAIN CONTENT -->
+  <main class="container">
+
+    <div class="form-box" style="max-width:420px; margin:auto; margin-top:40px;">
+      <h2 style="margin-bottom:12px;">Payment</h2>
+
+      <form onsubmit="return confirmPayment()">
+        <input type="text" placeholder="Card Number" maxlength="16" required>
+        <input type="text" placeholder="Expiry (MM/YY)" maxlength="5" required>
+        <input type="text" placeholder="CVV" maxlength="3" required>
+
+        <button type="submit" class="btn" style="width:100%; margin-top:10px;">
+          Confirm Payment
+        </button>
+      </form>
+    </div>
+
+  </main> </center>
+
+  <!-- FOOTER -->
+  <footer class="footer container">
+    © CinemaX
+  </footer>
+
 </div>
+
+<script>
+function confirmPayment() {
+  // Browser will check required fields first
+  alert("Payment Successful!");
+  window.location.href = "thanks.html"; // redirect to home
+  return false; // prevent default form submission
+}
+</script>
+
 </body>
 </html>
