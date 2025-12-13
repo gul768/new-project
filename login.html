@@ -6,21 +6,21 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-  <div class="site">
-    <header class="header container"><div class="brand"><div class="logo"></div><h1>CinemaX</h1></div></header>
+<body class="login-page">
 
-    <main class="container">
-      <form class="form-box" style="margin-top:40px;" onsubmit="return loginUser();">
-        <h2>Login</h2>
-        <input type="email" id="loginEmail" placeholder="Email" required>
-        <input type="password" id="loginPassword" placeholder="Password" required>
-        <button class="btn" type="submit">Login</button>
-        <p style="margin-top:8px;color:var(--muted);">New user? <a href="register.html" style="color:var(--accent);">Create account</a></p>
-      </form>
-    </main>
+  <div class="center-wrapper"> 
+    <form class="form-box" onsubmit="return loginUser();">
+      <h2>Login</h2>
 
-    <footer class="footer container">© CinemaX</footer>
+      <input type="email" id="loginEmail" placeholder="Email" required>
+      <input type="password" id="loginPassword" placeholder="Password" required>
+
+      <button class="btn" type="submit">Login</button>
+
+      <p class="create">
+        New user? <a href="register.html">Create account</a>
+      </p>
+    </form>
   </div>
 
   <script>
@@ -43,8 +43,9 @@
         alert("Invalid email or password.");
       }
 
-      return false; // prevent default form submit
+      return false; 
     }
   </script>
+
 </body>
 </html>
